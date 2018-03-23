@@ -14,12 +14,13 @@ const webpackConfig = {
     //设置开发者工具的端口号,不设置则默认为8080端口
     devServer: {
         inline: true,
+        contentBase:"./build/",
         port: 8181
     },
     module:{
         rules:[
             {
-                test:/\.js?$/,
+                test:/\.js[x]?$/,
                 exclude:/node_modules/,
                 loader:'babel-loader',
                 query:{
@@ -30,6 +31,12 @@ const webpackConfig = {
                 test: /\.(scss|sass|css)$/,
                 loader: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader"})
             },
+            {
+                test:/\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=/img/[name].[ext]'
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/, loader: 'url-loader'
+            }
 
         ]
     },
@@ -69,6 +76,6 @@ Object.keys(entries).forEach(function(name) {
         chunks: [name]
     });
     webpackConfig.plugins.push(plugin);
-})
+});
 
 module.exports = webpackConfig;
