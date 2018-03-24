@@ -16,6 +16,7 @@
 
 .App-title {
   font-size: 1.5em;
+  color: white;
 }
 
 .App-intro {
@@ -25,4 +26,45 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+form {
+    margin-top: 7%;
+    display: block;
+}
+.input {
+    font-size: 20px;
+    width: 100%;
+    line-height: 20px;
+    height: 70px;
+    padding-left: 15px;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #108ee9;
+    border-left: 0;
+    outline: none;
+}
+.input1 {
+    font-size: 20px;
+    width: 100%;
+    line-height: 20px;
+    height: 55px;
+    outline: none;
+    background-color: #108ee9;
+    color:white;
+    margin-top: 30px;
+}
+#span {
+    text-align: left;
+    margin-top: 15px;
+    padding-left: 10px;
+    color: #108ee9;
+}
+.span1 {
+    font-size: 18px;
+    padding-left: 15px;
+    padding-top: 5px;
+    color: #8590a6;
+}
+#span1 {
+    margin-top: 20px;
 }
