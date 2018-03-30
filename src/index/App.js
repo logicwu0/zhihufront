@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Row,Col} from 'antd';
 import {Input} from 'antd';
+import {browserHistory} from 'react-router';
 import 'antd/dist/antd.css'
 import logo from '../logo.svg';
 import './App.css';
@@ -37,17 +38,22 @@ class App extends Component {
             headers: {
                 //"Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
                 "Content-Type": "application/json"
-
             },
             mode: 'cors',
             body: str
         }).then(response => response.json())
             .then(json => {
                 console.log(json);
+                //console.log(json.success == false);
+                if(json.success === true) {
+                    window.location.href = 'app1.html'
+                }
+                else {
 
+                }
             })
             .catch(function (error) {
-                console.log('request failed: ', error)
+                console.log('request failed: ', error);
             });
     }
   render() {
