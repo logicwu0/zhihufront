@@ -30,25 +30,25 @@ class App extends Component {
     fn() {
         //点击事件,然后拼接数据，最后通过AJAX发送待后台API地址，后台进行解析
         //对象值的方式
-        let data = {username:this.state.a,password:this.state.b};
+        let data = {name: this.state.a, password: this.state.b};
         let str = JSON.stringify(data);
-        document.write(str + "<br />");
-        fetch("http://10.193.236.82:8080/reg", {
+        fetch("http://localhost:8080/reg", {
             method: "POST",
             headers: {
-                "Content-Type": 'application/x-www-form-urlencoded',
-                //'Content-Type': 'application/text'
+                //"Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
+                "Content-Type": "application/json"
 
             },
-            mode : 'cors',
-            body:str
-        }).then(response =>response.json())
+            mode: 'cors',
+            body: str
+        }).then(response => response.json())
             .then(json => {
                 console.log(json);
+
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.log('request failed: ', error)
-            })
+            });
     }
   render() {
     return (
