@@ -34,6 +34,7 @@ class App extends Component {
         let data = {name: this.state.a, password: this.state.b};
         let str = JSON.stringify(data);
         fetch("http://localhost:8080/reg", {
+            credentials:"include",
             method: "POST",
             headers: {
                 //"Content-Type": 'application/x-www-form-urlencoded;charset=utf-8',
@@ -48,9 +49,9 @@ class App extends Component {
                 if(json.success === true) {
                     window.location.href = 'app1.html'
                 }
-                else {
+               // else {
 
-                }
+                //}
             })
             .catch(function (error) {
                 console.log('request failed: ', error);
